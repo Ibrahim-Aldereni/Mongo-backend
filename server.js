@@ -21,7 +21,7 @@ server.get("/books", booksHandler);
 ////////////////////////////////////////// mongoose ///////////////////////////////////////////
 const MONGO_URL = process.env.MONGO_URL;
 
-mongoose.connect(`mongodb:${MONGO_URL}/books`, {
+mongoose.connect(`mongodb://localhost:27017/books`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
