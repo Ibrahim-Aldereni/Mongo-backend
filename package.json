@@ -17,5 +17,12 @@
   "bugs": {
     "url": "https://github.com/Ibrahim-Aldereni/Mongo-backend/issues"
   },
-  "homepage": "https://github.com/Ibrahim-Aldereni/Mongo-backend#readme"
+  "homepage": "https://github.com/Ibrahim-Aldereni/Mongo-backend#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.14",
+    "nodemon": "^2.0.7"
+  }
 }
