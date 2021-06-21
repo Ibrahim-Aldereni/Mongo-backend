@@ -1,0 +1,21 @@
+{
+  "name": "mongo-backend",
+  "version": "1.0.0",
+  "description": "This repo connects to auth0 frontend",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ibrahim-Aldereni/Mongo-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ibrahim-Aldereni/Mongo-backend/issues"
+  },
+  "homepage": "https://github.com/Ibrahim-Aldereni/Mongo-backend#readme"
+}
