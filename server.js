@@ -21,7 +21,7 @@ server.get("/books", booksHandler);
 ////////////////////////////////////////// mongoose ///////////////////////////////////////////
 const MONGO_URL = process.env.MONGODB_URI;
 
-mongoose.connect(`${MONGO_URL}/books`, {
+mongoose.connect(MONGO_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -39,7 +39,7 @@ const owner = new mongoose.Schema({
 });
 
 // modals
-const Owners = mongoose.model("Owner", owner);
+const Owners = mongoose.model("owner", owner);
 
 // funtions:
 
