@@ -21,7 +21,7 @@ server.get("/books", booksHandler);
 ////////////////////////////////////////// mongoose ///////////////////////////////////////////
 const MONGO_URL = process.env.MONGODB_URI;
 
-mongoose.connect(MONGO_URL, {
+mongoose.connect(`${MONGO_URL}/myFirstDatabase`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
