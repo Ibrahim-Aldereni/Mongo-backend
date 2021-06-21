@@ -19,7 +19,7 @@ server.get("/", homeHandler);
 server.get("/books", booksHandler);
 
 ////////////////////////////////////////// mongoose ///////////////////////////////////////////
-const MONGO_URL = process.env.MONGO_URL;
+const MONGO_URL = process.env.MONGODB_URI;
 
 mongoose.connect(`${MONGO_URL}/books`, {
   useNewUrlParser: true,
