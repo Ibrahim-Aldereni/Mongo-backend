@@ -3,10 +3,14 @@
 require("dotenv").config();
 const cors = require("cors");
 const express = require("express");
-const mongoose = require("mongoose");
+
+const MongooseItems = require("./modules/mongoose-books");
+const addbooksHandler = require("./modules/AddBooks");
+const deletebooksHandler = require("./modules/DeleteBooks");
 
 const server = express();
 server.use(cors());
+server.use(express.json()); // to read POST request as json (if don't use it you will have undefiend)
 
 const PORT = process.env.PORT;
 
@@ -16,66 +20,18 @@ const PORT = process.env.PORT;
 server.get("/", homeHandler);
 
 //localhost:3001/books
-server.get("/books", booksHandler);
+server.get("/books", MongooseItems.booksHandler);
 
-////////////////////////////////////////// mongoose ///////////////////////////////////////////
-const MONGO_URL = process.env.MONGODB_URI;
+//localhost:3001/addbooks
+server.post("/addbooks", addbooksHandler);
 
-mongoose.connect(`${MONGO_URL}/myFirstDatabase`, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-
-// schemas:
-const book = new mongoose.Schema({
-  name: String,
-  desc: String,
-  img: String,
-});
-
-const owner = new mongoose.Schema({
-  email: String,
-  books: [book],
-});
-
-// modals
-const Owners = mongoose.model("owner", owner);
-
-// funtions:
-
-function seedOwnersCollection() {
-  const ibrahim = new Owners({
-    email: "ibrahemaldrynee@gmail.com",
-    books: [
-      {
-        name: "book1",
-        desc: "This book talk about animals",
-        img: "https://images3.penguinrandomhouse.com/cover/9781465414571",
-      },
-      {
-        name: "book2",
-        desc: "this book talks about food",
-        img: "https://images4.penguinrandomhouse.com/cover/9781611806175",
-      },
-    ],
-  });
-
-  ibrahim.save();
-}
-// seedOwnersCollection();
+//localhost:3001/deletebooks
+server.delete("/deletebooks/:id", deletebooksHandler);
 
 //////////////////////////////////////////// functions //////////////////////////////////////
 
 function homeHandler(req, res) {
   res.send("Home page");
-}
-
-function booksHandler(req, res) {
-  let email = req.query.email;
-
-  Owners.find({ email: email }, (err, data) => {
-    err ? console.log("there is error") : res.send(data[0].books);
-  });
 }
 
 /////////////////////////////////////////// listen ///////////////////////////////////////////
