@@ -33,6 +33,8 @@ This server recive GET/POST/DELETE/UPDATE requests from client and then get data
 
 - 22-06-2021 (1:00 - 7:00)- Application now has can GET/post/delete data from mongo database
 
+- 23-06-2021 (1:30 - 5:30)- Application now has can GET/post/delete/update data from mongo database
+
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
 
 01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->

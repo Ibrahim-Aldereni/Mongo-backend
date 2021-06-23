@@ -7,6 +7,7 @@ const express = require("express");
 const MongooseItems = require("./modules/mongoose-books");
 const addbooksHandler = require("./modules/AddBooks");
 const deletebooksHandler = require("./modules/DeleteBooks");
+const updatebooksHandler = require("./modules/UpdateBooks");
 
 const server = express();
 server.use(cors());
@@ -27,6 +28,9 @@ server.post("/addbooks", addbooksHandler);
 
 //localhost:3001/deletebooks
 server.delete("/deletebooks/:id", deletebooksHandler);
+
+//localhost:3001/deletebooks
+server.put("/updatebooks/:id", updatebooksHandler);
 
 //////////////////////////////////////////// functions //////////////////////////////////////
 
